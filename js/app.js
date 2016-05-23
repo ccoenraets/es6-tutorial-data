@@ -22,9 +22,7 @@ function request(obj, successHandler, errorHandler) {
 
 request({url:"employees.json"},
     function(data) {
-        console.log(data);
         var employees = JSON.parse(data);
-        console.log(employees);
         var html = "";
         employees.forEach(function(employee){
             html += "<div><img src='" + employee.picture + "'/><div>" + employee.firstName + " " + employee.lastName + "<p>" + employee.phone + "</p></div></div>";
