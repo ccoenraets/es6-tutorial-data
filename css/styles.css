@@ -1,0 +1,27 @@
+body {
+    font-family: 'Roboto', 'Sans Serif';
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    width:60px;
+    height:60px;
+    border-radius: 50%;
+    display: inline;
+}
+
+#list>div {
+    display: flex;
+    padding: 12px;
+}
+
+#list>div>div {
+    padding: 8px;
+}
+
+p {
+    margin: 0;
+    padding: 4px 0;
+}
