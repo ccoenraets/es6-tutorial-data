@@ -2,11 +2,61 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9be6373-3b08-41b5-adbf-a1ff23a7b566" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/params.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/github-light.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/normalize.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/stylesheet.css" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/Gemfile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/Gemfile.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/app/calc-bundle.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/app/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/app/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/app/styles.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/bootstrap/css/bootstrap-theme.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/bootstrap/css/bootstrap-theme.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/bootstrap/css/bootstrap-theme.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/bootstrap/css/bootstrap-theme.min.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/bootstrap/css/bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/bootstrap/css/bootstrap.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/bootstrap/css/bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/bootstrap/css/bootstrap.min.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/bootstrap/fonts/glyphicons-halflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/bootstrap/fonts/glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/bootstrap/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/bootstrap/fonts/glyphicons-halflings-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/bootstrap/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/bootstrap/js/bootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/bootstrap/js/bootstrap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/bootstrap/js/npm.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/main.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/print.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/styles.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/syntax.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/ecmascript6-arrow-functions.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/ecmascript6-classes.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/ecmascript6-data-es6-features.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/ecmascript6-data-modules.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/ecmascript6-data-promisify.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/ecmascript6-data-setup.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/ecmascript6-destructuring.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/ecmascript6-let.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/ecmascript6-modules.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/ecmascript6-promises.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/ecmascript6-react-modules.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/ecmascript6-setup-babel.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/ecmascript6-setup-react.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/ecmascript6-setup-webpack.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/ecmascript6-template-strings.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/images/amortization-in-console.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/images/amortization-table.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/images/calc-file.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/images/calc-http.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/images/calc-init.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/images/calc-rate.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/images/icon-github.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/images/js.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/images/scope-error.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/lib/jquery.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/next.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="es6-tutorial-data.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -80,16 +130,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15138023">
+            <state vertical-scroll-proportion="-5.275862">
               <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
           <provider editor-type-id="MarkdownPreviewEditor">
             <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.015111111">
+              <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -122,11 +182,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/js/app.js" />
         <option value="$PROJECT_DIR$/css/styles.css" />
         <option value="$PROJECT_DIR$/_layouts/module.html" />
         <option value="$PROJECT_DIR$/index.md" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -291,9 +351,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1617" y="-404" width="2103" height="1296" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21350452" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21350452" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -388,13 +448,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15138023">
+        <state vertical-scroll-proportion="-5.275862">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.015111111">
+          <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
