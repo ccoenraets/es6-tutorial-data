@@ -1,35 +1,49 @@
-// XMLHttpRequest wrapper using callbacks
-function request(obj, successHandler, errorHandler) {
-    var xhr = new XMLHttpRequest();
-    xhr.open(obj.method || "GET", obj.url);
-    if (obj.headers) {
-        Object.keys(obj.headers).forEach(function(key) {
-            xhr.setRequestHeader(key, obj.headers[key]);
-        });
-    }
-    xhr.onload = function() {
-        if (xhr.status >= 200 && xhr.status < 300) {
-            successHandler(xhr.response);
-        } else {
-            errorHandler(xhr.statusText);
-        }
-    };
-    xhr.onerror = function() {
-        errorHandler(xhr.statusText);
-    };
-    xhr.send(obj.body);
-}
+(function() {
+    "use strict";
+    var template = [
+        "{{#.}}",
+            "<div>",
+                "<img src='{{picture}}' />",
+                "<div>",
+                    "{{firstName}}",
+                    " {{lastName}}",
+                    "<p>",
+                        "{{phone}}",
+                    "</p>",
+                "</div>",
+            "</div>",
+        "{{/.}}"
+    ].join('');
 
-request({url:"employees.json"},
-    function(data) {
-        var employees = JSON.parse(data);
-        var html = "";
-        employees.forEach(function(employee){
-            html += "<div><img src='" + employee.picture + "'/><div>" + employee.firstName + " " + employee.lastName + "<p>" + employee.phone + "</p></div></div>";
-        });
-        document.getElementById("list").innerHTML = html;
-    },
-    function(error) {
-        console.log(error);
+    function request(o) {
+        var xhr = new XMLHttpRequest();
+        xhr.timeout = 5000;
+        xhr.overrideMimeType("application/json; charset=UTF-8");
+        xhr.onreadystatechange = function() {
+            if (xhr.status === 200 && xhr.readyState === 4) {
+                o.success(xhr.response);
+            }
+        };
+        xhr.ontimeout = function() {
+            o.error("Requested timeout " + o.url);
+        };
+        xhr.onerror = function() {
+            o.error("An error occurred while transerring " + o.url);
+        };
+        xhr.open(o.method || "GET", o.url, true);
+        xhr.send(null);
     }
-);
+
+    request({
+        url: "employees.json",
+        method: "GET",
+        success: function(data) {
+            var employees = JSON.parse(data);
+            document.getElementById("list").innerHTML =
+                Mustache.to_html(template, employees);
+        },
+        error: function(err) {
+            console.error(err);
+        }
+    });
+}());
