@@ -1,5 +1,20 @@
 (function() {
     "use strict";
+    var template = [
+        "{{#.}}",
+            "<div>",
+                "<img src='{{picture}}' />",
+                "<div>",
+                    "{{firstName}}",
+                    " {{lastName}}",
+                    "<p>",
+                        "{{phone}}",
+                    "</p>",
+                "</div>",
+            "</div>",
+        "{{/.}}"
+    ].join('');
+
     function request(o) {
         var xhr = new XMLHttpRequest();
         xhr.timeout = 5000;
@@ -24,11 +39,8 @@
         method: "GET",
         success: function(data) {
             var employees = JSON.parse(data);
-            var html = "";
-            employees.forEach(function(employee){
-                html += "<div><img src='" + employee.picture + "'/><div>" + employee.firstName + " " + employee.lastName + "<p>" + employee.phone + "</p></div></div>";
-            });
-            document.getElementById("list").innerHTML = html;
+            document.getElementById("list").innerHTML =
+                Mustache.to_html(template, employees);
         },
         error: function(err) {
             console.error(err);

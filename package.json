@@ -1,0 +1,21 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "Starting point for the ECMAScript 6 Data Tutorial",
+  "main": "index.js",
+  "scripts": {
+    "postbabel": "uglifyjs --compress 'unused=false' --mangle -- ./node_modules/mustache/mustache.min.js build/temp.js > build/main.bundle.js",
+    "babel": "babel --presets es2015 js/app.js -o build/temp.js",
+    "start": "http-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-core": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "http-server": "^0.9.0",
+    "mustache": "^2.2.1",
+    "uglifyjs": "^2.4.10"
+  }
+}
