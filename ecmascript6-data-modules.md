@@ -13,6 +13,10 @@ layout: module
 
 1. In `app.js`, import the `request` module to make the request function available
 
+    ```
+    import request from './request';
+    ```
+
 1. Build the app:
 
 	```
@@ -27,6 +31,10 @@ layout: module
 1. In the `/js` directory, create a new file named `employee-service.js`
 
 1. In `employee-service.js`, import the `request` module
+
+    ```
+    import request from './request';
+    ```
 
 1. Create a `findAll()` method implemented as follows:
 
