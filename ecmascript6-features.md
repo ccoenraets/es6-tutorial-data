@@ -87,7 +87,7 @@ Now that the application uses ECMAScript 6 features, you need to compile it usin
 
 <div class="row" style="margin-top:40px;">
 <div class="col-sm-12">
-<a href="ecmascript6-data-setup.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Previous</a>
-<a href="ecmascript6-data-promisify.html" class="btn btn-default pull-right">Next <i class="glyphicon glyphicon-chevron-right"></i></a>
+<a href="ecmascript6-setup.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Previous</a>
+<a href="ecmascript6-promisify.html" class="btn btn-default pull-right">Next <i class="glyphicon glyphicon-chevron-right"></i></a>
 </div>
 </div>

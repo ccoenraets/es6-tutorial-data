@@ -122,6 +122,6 @@ layout: module
 
 <div class="row" style="margin-top:40px;">
 <div class="col-sm-12">
-<a href="ecmascript6-data-promisify.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Previous</a>
+<a href="ecmascript6-promisify.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Previous</a>
 </div>
 </div>

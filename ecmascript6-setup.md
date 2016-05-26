@@ -57,6 +57,6 @@ Follow the instructions below to install the sample application used as a starti
 <div class="row" style="margin-top:40px;">
 <div class="col-sm-12">
 <a href="index.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Previous</a>
-<a href="ecmascript6-data-es6-features.html" class="btn btn-default pull-right">Next <i class="glyphicon glyphicon-chevron-right"></i></a>
+<a href="ecmascript6-features.html" class="btn btn-default pull-right">Next <i class="glyphicon glyphicon-chevron-right"></i></a>
 </div>
 </div>
