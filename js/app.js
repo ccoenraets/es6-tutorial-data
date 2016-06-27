@@ -5,7 +5,7 @@ let request = (obj, successHandler, errorHandler) => {
     if (obj.headers) {
         Object.keys(obj.headers).forEach(key => {
             xhr.setRequestHeader(key, obj.headers[key]);
-    });
+        });
     }
     xhr.onload = () => {
         if (xhr.status >= 200 && xhr.status < 300) {
@@ -18,12 +18,12 @@ let request = (obj, successHandler, errorHandler) => {
     xhr.send(obj.body);
 };
 
-request({url:"employees.json"},
+request({url: "employees.json"},
     data => {
-    let employees = JSON.parse(data);
-let html = "";
-employees.forEach(employee => {
-    html += `
+        let employees = JSON.parse(data);
+        let html = "";
+        employees.forEach(employee => {
+            html += `
                 <div>
                     <img src='${employee.picture}'/>
                     <div>
@@ -31,10 +31,10 @@ employees.forEach(employee => {
                         <p>${employee.phone}</p>
                     </div>
                 </div>`;
-});
-document.getElementById("list").innerHTML = html;
-},
-error => {
-    console.log(error);
-}
+        });
+        document.getElementById("list").innerHTML = html;
+    },
+    error => {
+        console.log(error);
+    }
 );
