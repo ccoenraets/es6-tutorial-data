@@ -11,8 +11,9 @@ layout: module
     - Replace all `var` definitions with `let`
     - Replace all `function()` definitions with arrow functions
     - Replace string concatenation with template strings
+    - Do **NOT** use ECMAScript 6 promises yet. You will do that in the next module.
     
-    > Do not use ECMAScript 6 promises yet. You will do that in the next module.
+    > If you are not familiar with these features, make sure you complete [this tutorial](http://ccoenraets.github.io/es6-tutorial/) first.
 
 ## Step 2: Set Up Babel and Webpack
 

@@ -5,7 +5,7 @@ layout: module
 
 Follow the instructions below to install the sample application used as a starting point for this workshop:
 
-1. Clone the [es6-tutorial-data](https://github.com/ccoenraets/es6-tutorial-data/) repository that includes an ECMAScript 5 version of the mortgage application we use in this tutorial:
+1. Clone the [es6-tutorial-data](https://github.com/ccoenraets/es6-tutorial-data/) repository that includes an ECMAScript 5 version of the employee directory application we use in this tutorial:
 
 	```
 	git clone https://github.com/ccoenraets/es6-tutorial-data
