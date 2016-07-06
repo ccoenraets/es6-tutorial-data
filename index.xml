@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ECMAScript 6 Tutorial</title>
+    <link>http://ccoenraets.github.io/es6-tutorial/</link>
+    <description>Recent content on ECMAScript 6 Tutorial</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 26 Apr 2016 22:26:03 -0400</lastBuildDate>
+    <atom:link href="http://ccoenraets.github.io/es6-tutorial/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Creating a Mock Data Service</title>
+      <link>http://ccoenraets.github.io/es6-tutorial/data-service-mock/</link>
+      <pubDate>Tue, 26 Apr 2016 22:26:03 -0400</pubDate>
+      
+      <guid>http://ccoenraets.github.io/es6-tutorial/data-service-mock/</guid>
+      <description>
+
+&lt;p&gt;One of the benefits of decoupling the view from a specific data access strategy is that you can easily change the way you access data without changing anything else in your application. For example, you could use a mock data service for quick prototyping or for unit testing, and a REST-based service for production. In this unit, we create a mock data service that implements the exact same API as the REST-based data service we created in the previous unit.&lt;/p&gt;
+
+&lt;h2 id=&#34;steps&#34;&gt;Steps&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;In the &lt;code&gt;/js&lt;/code&gt; directory, create a new file named &lt;code&gt;employee-service-mock.js&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;In &lt;code&gt;employee-service-mock.js&lt;/code&gt;, define an array holding your mock data.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let employees = [
+  {
+    id: 1,
+    firstName: &amp;quot;Amy&amp;quot;,
+    lastName: &amp;quot;Taylor&amp;quot;,
+    phone: &amp;quot;617-564-3254&amp;quot;,
+    picture: &amp;quot;https://s3-us-west-1.amazonaws.com/sfdc-demo/people/amy_taylor.jpg&amp;quot;
+  },
+  {
+    id: 2,
+    firstName: &amp;quot;Anup&amp;quot;,
+    lastName: &amp;quot;Gupta&amp;quot;,
+    phone: &amp;quot;617-564-1258&amp;quot;,
+    picture: &amp;quot;https://s3-us-west-1.amazonaws.com/sfdc-demo/people/anup_gupta.jpg&amp;quot;
+  }
+];
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Create function named &lt;code&gt;findAll&lt;/code&gt; defined as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;export let findAll = () =&amp;gt; new Promise(resolve =&amp;gt; resolve(employees));
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Highlights:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The function has the same signature as the &lt;code&gt;findAll()&lt;/code&gt; function defined in &lt;code&gt;employee-service.js&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;The function returns the in-memory array as opposed to making a REST call for data&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;In &lt;code&gt;app.js&lt;/code&gt;, change the import statement to import &lt;code&gt;employee-service-mock&lt;/code&gt; instead of &lt;code&gt;employee-service&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Build the app:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt; npm run webpack
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Make sure your local http server is started, open a browser and access &lt;a href=&#34;http://localhost:8080&#34;&gt;http://localhost:8080&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;solution&#34;&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;The final code for this step is available in &lt;a href=&#34;https://github.com/ccoenraets/es6-tutorial-data/tree/step6&#34;&gt;this branch&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Creating a Data Service</title>
+      <link>http://ccoenraets.github.io/es6-tutorial/data-service/</link>
+      <pubDate>Mon, 25 Apr 2016 22:26:03 -0400</pubDate>
+      
+      <guid>http://ccoenraets.github.io/es6-tutorial/data-service/</guid>
+      <description>
+
+&lt;p&gt;In the current implementation of the application, the view (app.js) is tightly coupled to the data access strategy used to retrieve data. In this unit, we create a Data Service that hides the specific data access strategy behind a generic API.&lt;/p&gt;
+
+&lt;h2 id=&#34;steps&#34;&gt;Steps&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;In the &lt;code&gt;/js&lt;/code&gt; directory, create a new file named &lt;code&gt;employee-service.js&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;In &lt;code&gt;employee-service.js&lt;/code&gt;, import the &lt;code&gt;request&lt;/code&gt; module&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;import request from &#39;./request&#39;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Create a &lt;code&gt;findAll()&lt;/code&gt; method implemented as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;export let findAll = () =&amp;gt; {
+    return request({url:&amp;quot;employees.json&amp;quot;})
+        .then(data =&amp;gt; data = JSON.parse(data))
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;In &lt;code&gt;app.js&lt;/code&gt;, remove the &lt;code&gt;request&lt;/code&gt; import and import the &lt;code&gt;employee-service&lt;/code&gt; module instead:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;import * as service from &amp;quot;./employee-service&amp;quot;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Replace the call to &lt;code&gt;request()&lt;/code&gt; with a call to &lt;code&gt;findAll()&lt;/code&gt; in the &lt;code&gt;employee-service&lt;/code&gt; module:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;service.findAll()
+    .then(employees =&amp;gt; {
+        let html = &amp;quot;&amp;quot;;
+        employees.forEach(function(employee){
+            html += `&amp;lt;div&amp;gt;
+                        &amp;lt;img src=&#39;${employee.picture}&#39;/&amp;gt;
+                        &amp;lt;div&amp;gt;
+                            ${employee.firstName} ${employee.lastName}
+                            &amp;lt;p&amp;gt;${employee.phone}&amp;lt;/p&amp;gt;
+                        &amp;lt;/div&amp;gt;
+                    &amp;lt;/div&amp;gt;`;
+        });
+        document.getElementById(&amp;quot;list&amp;quot;).innerHTML = html;
+    })
+    .catch(error =&amp;gt; console.log(error)
+);
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Build the app:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt; npm run webpack
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Make sure your local http server is started, open a browser and access &lt;a href=&#34;http://localhost:8080&#34;&gt;http://localhost:8080&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;solution&#34;&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;The final code for this step is available in &lt;a href=&#34;https://github.com/ccoenraets/es6-tutorial-data/tree/step5&#34;&gt;this branch&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Modularizing HTTP Requests</title>
+      <link>http://ccoenraets.github.io/es6-tutorial/modules/</link>
+      <pubDate>Sun, 24 Apr 2016 22:26:03 -0400</pubDate>
+      
+      <guid>http://ccoenraets.github.io/es6-tutorial/modules/</guid>
+      <description>
+
+&lt;p&gt;In this unit, you turn the request function into a module so you can easily use it in different parts of the application, or in different applications.&lt;/p&gt;
+
+&lt;h2 id=&#34;steps&#34;&gt;Steps&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;In the &lt;code&gt;/js&lt;/code&gt; directory, create a new file named &lt;code&gt;request.js&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Move the &lt;code&gt;request()&lt;/code&gt; function definition from &lt;code&gt;app.js&lt;/code&gt; into &lt;code&gt;request.js&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Export that function as the &lt;strong&gt;default&lt;/strong&gt; function for the module.&lt;/p&gt;
+
+&lt;p&gt;The request module should look like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;export default obj =&amp;gt; {
+    return new Promise((resolve, reject) =&amp;gt; {
+        let xhr = new XMLHttpRequest();
+        xhr.open(obj.method || &amp;quot;GET&amp;quot;, obj.url);
+        if (obj.headers) {
+            Object.keys(obj.headers).forEach(key =&amp;gt; {
+                xhr.setRequestHeader(key, obj.headers[key]);
+            });
+        }
+        xhr.onload = () =&amp;gt; {
+            if (xhr.status &amp;gt;= 200 &amp;amp;&amp;amp; xhr.status &amp;lt; 300) {
+                resolve(xhr.response);
+            } else {
+                reject(xhr.statusText);
+            }
+        };
+        xhr.onerror = () =&amp;gt; reject(xhr.statusText);
+        xhr.send(obj.body);
+    });
+};
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;In &lt;code&gt;app.js&lt;/code&gt;, import the &lt;code&gt;request&lt;/code&gt; module to make the request function available&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;import request from &#39;./request&#39;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Build the app:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt; npm run webpack
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Make sure your local http server is started, open a browser and access &lt;a href=&#34;http://localhost:8080&#34;&gt;http://localhost:8080&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;solution&#34;&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;The final code for this step is available in &lt;a href=&#34;https://github.com/ccoenraets/es6-tutorial-data/tree/step4&#34;&gt;this branch&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Promisifying XMLHttpRequest</title>
+      <link>http://ccoenraets.github.io/es6-tutorial/promisify/</link>
+      <pubDate>Sat, 23 Apr 2016 22:26:03 -0400</pubDate>
+      
+      <guid>http://ccoenraets.github.io/es6-tutorial/promisify/</guid>
+      <description>
+
+&lt;p&gt;In this unit, you replace the callback-based inplementation of the request() function with an ECMAScript 6 promise-based implementation.&lt;/p&gt;
+
+&lt;h2 id=&#34;steps&#34;&gt;Steps&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Open &lt;code&gt;js/app.js&lt;/code&gt; in your favorite code editor.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;At the top of the file, modify the &lt;code&gt;request()&lt;/code&gt; function definition as follows:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Remove the &lt;code&gt;successHandler&lt;/code&gt; and &lt;code&gt;errorHandler&lt;/code&gt; arguments in the function signature&lt;/li&gt;
+&lt;li&gt;Modify the function body to return an ECMAScript 6 promise&lt;/li&gt;
+&lt;li&gt;Instead of calling &lt;code&gt;successHandler()&lt;/code&gt;, resolve the promise&lt;/li&gt;
+&lt;li&gt;Instead of calling &lt;code&gt;errorHandler()&lt;/code&gt;, reject the promise
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The request() function definition should now look like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let request = obj =&amp;gt; {
+    return new Promise((resolve, reject) =&amp;gt; {
+        let xhr = new XMLHttpRequest();
+        xhr.open(obj.method || &amp;quot;GET&amp;quot;, obj.url);
+        if (obj.headers) {
+            Object.keys(obj.headers).forEach(key =&amp;gt; {
+                xhr.setRequestHeader(key, obj.headers[key]);
+            });
+        }
+        xhr.onload = () =&amp;gt; {
+            if (xhr.status &amp;gt;= 200 &amp;amp;&amp;amp; xhr.status &amp;lt; 300) {
+                resolve(xhr.response);
+            } else {
+                reject(xhr.statusText);
+            }
+        };
+        xhr.onerror = () =&amp;gt; reject(xhr.statusText);
+        xhr.send(obj.body);
+    });
+};
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Modify the call to the &lt;code&gt;request()&lt;/code&gt; function. Replace the old callback functions with the ECMAScript 6 &lt;code&gt;.then()&lt;/code&gt; and &lt;code&gt;.catch()&lt;/code&gt; syntax.&lt;/p&gt;
+
+&lt;p&gt;The call to the request() function should now look like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;request({url: &amp;quot;employees.json&amp;quot;})
+    .then(data =&amp;gt; {
+        let employees = JSON.parse(data);
+        let html = &amp;quot;&amp;quot;;
+        employees.forEach(employee =&amp;gt; {
+            html += `
+                &amp;lt;div&amp;gt;
+                    &amp;lt;img src=&#39;${employee.picture}&#39;/&amp;gt;
+                    &amp;lt;div&amp;gt;
+                        ${employee.firstName} ${employee.lastName}
+                        &amp;lt;p&amp;gt;${employee.phone}&amp;lt;/p&amp;gt;
+                    &amp;lt;/div&amp;gt;
+                &amp;lt;/div&amp;gt;`;
+        });
+        document.getElementById(&amp;quot;list&amp;quot;).innerHTML = html;
+    })
+    .catch(error =&amp;gt; {
+        console.log(error);
+    });
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;On the command line, make sure you are in the &lt;code&gt;es6-tutorial-data&lt;/code&gt; directory, and type the following command to build the app:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt; npm run webpack
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Make sure your local http server is started, open a browser and access &lt;a href=&#34;http://localhost:8080&#34;&gt;http://localhost:8080&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+    
+
+
+&lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
+    This is just one approach to invoke REST services using ECMAScript 6 promises. Another approach is to use the new fetch() function as described in the &lt;a href=&#34;http://ccoenraets.github.io/es6-tutorial/ecmascript6-promises.html&#34;&gt;generic ECMAScript 6 tutorial&lt;/a&gt;. The fetch() function is &lt;a href=&#34;http://caniuse.com/#feat=fetch&#34;&gt;not supported in all browsers&lt;/a&gt;.
+&lt;/div&gt;
+
+
+    
+
+
+&lt;h2 id=&#34;solution&#34;&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;The final code for this step is available in &lt;a href=&#34;https://github.com/ccoenraets/es6-tutorial-data/tree/step3&#34;&gt;this branch&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Using Babel and Webpack</title>
+      <link>http://ccoenraets.github.io/es6-tutorial/babel-webpack/</link>
+      <pubDate>Fri, 22 Apr 2016 22:26:03 -0400</pubDate>
+      
+      <guid>http://ccoenraets.github.io/es6-tutorial/babel-webpack/</guid>
+      <description>
+
+&lt;p&gt;In this unit, you modify the existing application and use some new ECMAScript 6 features. You then set up a build environment using Babel and Webpack.&lt;/p&gt;
+
+&lt;h2 id=&#34;step-1-use-new-ecmascript-6-features&#34;&gt;Step 1: Use New ECMAScript 6 Features&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Open &lt;code&gt;js/app.js&lt;/code&gt; in your favorite code editor.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Modify the application as follows to use some of the new features in ECMAScript 6:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Replace all &lt;code&gt;var&lt;/code&gt; definitions with &lt;code&gt;let&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Replace all &lt;code&gt;function()&lt;/code&gt; definitions with arrow functions&lt;/li&gt;
+&lt;li&gt;Replace string concatenation with template strings&lt;/li&gt;
+&lt;li&gt;Do &lt;strong&gt;NOT&lt;/strong&gt; use ECMAScript 6 promises yet. You will do that in the next unit.
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+    
+
+
+&lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
+    If you are not familiar with these features, make sure you complete &lt;a href=&#34;http://ccoenraets.github.io/es6-tutorial/&#34;&gt;this tutorial&lt;/a&gt; first.
+&lt;/div&gt;
+
+
+    
+&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;step-2-set-up-babel-and-webpack&#34;&gt;Step 2: Set Up Babel and Webpack&lt;/h2&gt;
+
+&lt;p&gt;Now that the application uses ECMAScript 6 features, you need to compile it using Babel.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Open a command prompt, and navigate (&lt;code&gt;cd&lt;/code&gt;) to the &lt;code&gt;es6-tutorial-data&lt;/code&gt; directory.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Type the following command to install the Babel and Webpack modules:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm install babel-core babel-loader babel-preset-es2015 webpack --save-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;In the &lt;code&gt;es6-tutorial-data&lt;/code&gt; directory, create a new file named &lt;code&gt;webpack.config.js&lt;/code&gt; defined as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt; var path = require(&#39;path&#39;);
+ var webpack = require(&#39;webpack&#39;);
+ module.exports = {
+     entry: &#39;./js/app.js&#39;,
+     output: {
+         path: path.resolve(__dirname, &#39;build&#39;),
+         filename: &#39;app.bundle.js&#39;
+     },
+     module: {
+         loaders: [
+             {
+                 test: /\.js$/,
+                 loader: &#39;babel-loader&#39;,
+                 query: {
+                     presets: [&#39;es2015&#39;]
+                 }
+             }
+         ]
+     },
+     stats: {
+         colors: true
+     },
+     devtool: &#39;source-map&#39;
+ };
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Open &lt;code&gt;package.json&lt;/code&gt; in your favorite code editor. In the &lt;code&gt;scripts&lt;/code&gt; section, add a script named &lt;strong&gt;webpack&lt;/strong&gt; that builds your application using Webpack and Babel. The &lt;code&gt;scripts&lt;/code&gt; section should now look like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;scripts&amp;quot;: {
+    &amp;quot;webpack&amp;quot;: &amp;quot;webpack&amp;quot;,
+    &amp;quot;start&amp;quot;: &amp;quot;http-server&amp;quot;
+},
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;In the &lt;code&gt;es6-tutorial-data&lt;/code&gt; directory, create a &lt;code&gt;build&lt;/code&gt; directory to host the compiled version of the application.&lt;/p&gt;
+
+
+    
+
+
+&lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
+    The build process will fail if you don&amp;rsquo;t create the build directory
+&lt;/div&gt;
+
+
+    
+&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;step-3-build-and-run&#34;&gt;Step 3: Build and Run&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;On the command line, make sure you are in the &lt;code&gt;es6-tutorial-data&lt;/code&gt; directory, and type the following command to build the app:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt; npm run webpack
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Open &lt;strong&gt;index.html&lt;/strong&gt; in your code editor, and modify the &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tag as follows to load &lt;code&gt;build/app.bundle.js&lt;/code&gt;, the compiled version of &lt;code&gt;js/app.js&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;script src=&amp;quot;build/app.bundle.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Make sure your local http server is started, open a browser and access &lt;a href=&#34;http://localhost:8080&#34;&gt;http://localhost:8080&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;solution&#34;&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;The final code for this step is available in &lt;a href=&#34;https://github.com/ccoenraets/es6-tutorial-data/tree/step2&#34;&gt;this branch&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Setting Up Your Project</title>
+      <link>http://ccoenraets.github.io/es6-tutorial/project-setup/</link>
+      <pubDate>Thu, 21 Apr 2016 22:26:03 -0400</pubDate>
+      
+      <guid>http://ccoenraets.github.io/es6-tutorial/project-setup/</guid>
+      <description>
+
+&lt;p&gt;In this unit, you install and run the ECMAScript 5 version of the Employee Directory application that we use as a starting point for this tutorial:&lt;/p&gt;
+
+&lt;h2 id=&#34;steps&#34;&gt;Steps&lt;/h2&gt;
+
+&lt;p&gt;Follow the instructions below to install the ECMAScript 5 version of the application:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Clone the &lt;a href=&#34;https://github.com/ccoenraets/es6-tutorial-data/&#34;&gt;es6-tutorial-data&lt;/a&gt; repository:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git clone https://github.com/ccoenraets/es6-tutorial-data
+&lt;/code&gt;&lt;/pre&gt;
+
+
+    
+
+
+&lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
+    Alternatively, you can just download and unzip &lt;a href=&#34;https://github.com/ccoenraets/es6-tutorial-data/archive/master.zip&#34;&gt;this file&lt;/a&gt; instead of cloning the repository.
+&lt;/div&gt;
+
+
+    
+&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Navigate (&lt;code&gt;cd&lt;/code&gt;) to the &lt;code&gt;es6-tutorial-data&lt;/code&gt; directory.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Type the following command to create a &lt;code&gt;package.json&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm init
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Press the &lt;strong&gt;Return&lt;/strong&gt; key in response to all the questions to accept the default values.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Install &lt;a href=&#34;https://github.com/indexzero/http-server&#34;&gt;http-server&lt;/a&gt; in your project. &lt;strong&gt;http-server&lt;/strong&gt; is a lightweight web server we use to run the application locally during development and avoid cross domain policy issues when loading data using XMLHttpRequest.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm install http-server --save-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Open &lt;code&gt;package.json&lt;/code&gt; in your favorite code editor. In the &lt;code&gt;scripts&lt;/code&gt; section, remove the &lt;strong&gt;test&lt;/strong&gt; script, and add a script named &lt;strong&gt;start&lt;/strong&gt; that starts the local web server. The &lt;code&gt;scripts&lt;/code&gt; section should now look like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;scripts&amp;quot;: {
+    &amp;quot;start&amp;quot;: &amp;quot;http-server&amp;quot;
+},
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;On the command line, type the following command to start the HTTP server:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If port 8080 is already in use on your computer, modify the &lt;strong&gt;start&lt;/strong&gt; script in &lt;code&gt;package.json&lt;/code&gt; and specify a port that is available on your computer. For example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;scripts&amp;quot;: {
+    &amp;quot;start&amp;quot;: &amp;quot;http-server -p 9000&amp;quot;
+},
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Open a browser and access &lt;a href=&#34;http://localhost:8080&#34;&gt;http://localhost:8080&lt;/a&gt; to run the application.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
