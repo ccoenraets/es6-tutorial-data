@@ -2,37 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://ccoenraets.github.io/es6-tutorial/</loc>
+    <loc>http://ccoenraets.github.io/es6-tutorial-data/</loc>
     <lastmod>2016-04-26T22:26:03-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://ccoenraets.github.io/es6-tutorial/data-service-mock/</loc>
+    <loc>http://ccoenraets.github.io/es6-tutorial-data/data-service-mock/</loc>
     <lastmod>2016-04-26T22:26:03-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://ccoenraets.github.io/es6-tutorial/data-service/</loc>
+    <loc>http://ccoenraets.github.io/es6-tutorial-data/data-service/</loc>
     <lastmod>2016-04-25T22:26:03-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://ccoenraets.github.io/es6-tutorial/modules/</loc>
+    <loc>http://ccoenraets.github.io/es6-tutorial-data/modules/</loc>
     <lastmod>2016-04-24T22:26:03-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://ccoenraets.github.io/es6-tutorial/promisify/</loc>
+    <loc>http://ccoenraets.github.io/es6-tutorial-data/promisify/</loc>
     <lastmod>2016-04-23T22:26:03-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://ccoenraets.github.io/es6-tutorial/babel-webpack/</loc>
+    <loc>http://ccoenraets.github.io/es6-tutorial-data/babel-webpack/</loc>
     <lastmod>2016-04-22T22:26:03-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://ccoenraets.github.io/es6-tutorial/project-setup/</loc>
+    <loc>http://ccoenraets.github.io/es6-tutorial-data/project-setup/</loc>
     <lastmod>2016-04-21T22:26:03-04:00</lastmod>
   </url>
   

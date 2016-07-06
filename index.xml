@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ECMAScript 6 Tutorial</title>
-    <link>http://ccoenraets.github.io/es6-tutorial/</link>
+    <link>http://ccoenraets.github.io/es6-tutorial-data/</link>
     <description>Recent content on ECMAScript 6 Tutorial</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 26 Apr 2016 22:26:03 -0400</lastBuildDate>
-    <atom:link href="http://ccoenraets.github.io/es6-tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://ccoenraets.github.io/es6-tutorial-data/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Creating a Mock Data Service</title>
-      <link>http://ccoenraets.github.io/es6-tutorial/data-service-mock/</link>
+      <link>http://ccoenraets.github.io/es6-tutorial-data/data-service-mock/</link>
       <pubDate>Tue, 26 Apr 2016 22:26:03 -0400</pubDate>
       
-      <guid>http://ccoenraets.github.io/es6-tutorial/data-service-mock/</guid>
+      <guid>http://ccoenraets.github.io/es6-tutorial-data/data-service-mock/</guid>
       <description>
 
 &lt;p&gt;One of the benefits of decoupling the view from a specific data access strategy is that you can easily change the way you access data without changing anything else in your application. For example, you could use a mock data service for quick prototyping or for unit testing, and a REST-based service for production. In this unit, we create a mock data service that implements the exact same API as the REST-based data service we created in the previous unit.&lt;/p&gt;
@@ -74,10 +74,10 @@
     
     <item>
       <title>Creating a Data Service</title>
-      <link>http://ccoenraets.github.io/es6-tutorial/data-service/</link>
+      <link>http://ccoenraets.github.io/es6-tutorial-data/data-service/</link>
       <pubDate>Mon, 25 Apr 2016 22:26:03 -0400</pubDate>
       
-      <guid>http://ccoenraets.github.io/es6-tutorial/data-service/</guid>
+      <guid>http://ccoenraets.github.io/es6-tutorial-data/data-service/</guid>
       <description>
 
 &lt;p&gt;In the current implementation of the application, the view (app.js) is tightly coupled to the data access strategy used to retrieve data. In this unit, we create a Data Service that hides the specific data access strategy behind a generic API.&lt;/p&gt;
@@ -141,10 +141,10 @@
     
     <item>
       <title>Modularizing HTTP Requests</title>
-      <link>http://ccoenraets.github.io/es6-tutorial/modules/</link>
+      <link>http://ccoenraets.github.io/es6-tutorial-data/modules/</link>
       <pubDate>Sun, 24 Apr 2016 22:26:03 -0400</pubDate>
       
-      <guid>http://ccoenraets.github.io/es6-tutorial/modules/</guid>
+      <guid>http://ccoenraets.github.io/es6-tutorial-data/modules/</guid>
       <description>
 
 &lt;p&gt;In this unit, you turn the request function into a module so you can easily use it in different parts of the application, or in different applications.&lt;/p&gt;
@@ -203,10 +203,10 @@
     
     <item>
       <title>Promisifying XMLHttpRequest</title>
-      <link>http://ccoenraets.github.io/es6-tutorial/promisify/</link>
+      <link>http://ccoenraets.github.io/es6-tutorial-data/promisify/</link>
       <pubDate>Sat, 23 Apr 2016 22:26:03 -0400</pubDate>
       
-      <guid>http://ccoenraets.github.io/es6-tutorial/promisify/</guid>
+      <guid>http://ccoenraets.github.io/es6-tutorial-data/promisify/</guid>
       <description>
 
 &lt;p&gt;In this unit, you replace the callback-based inplementation of the request() function with an ECMAScript 6 promise-based implementation.&lt;/p&gt;
@@ -303,10 +303,10 @@
     
     <item>
       <title>Using Babel and Webpack</title>
-      <link>http://ccoenraets.github.io/es6-tutorial/babel-webpack/</link>
+      <link>http://ccoenraets.github.io/es6-tutorial-data/babel-webpack/</link>
       <pubDate>Fri, 22 Apr 2016 22:26:03 -0400</pubDate>
       
-      <guid>http://ccoenraets.github.io/es6-tutorial/babel-webpack/</guid>
+      <guid>http://ccoenraets.github.io/es6-tutorial-data/babel-webpack/</guid>
       <description>
 
 &lt;p&gt;In this unit, you modify the existing application and use some new ECMAScript 6 features. You then set up a build environment using Babel and Webpack.&lt;/p&gt;
@@ -426,10 +426,10 @@
     
     <item>
       <title>Setting Up Your Project</title>
-      <link>http://ccoenraets.github.io/es6-tutorial/project-setup/</link>
+      <link>http://ccoenraets.github.io/es6-tutorial-data/project-setup/</link>
       <pubDate>Thu, 21 Apr 2016 22:26:03 -0400</pubDate>
       
-      <guid>http://ccoenraets.github.io/es6-tutorial/project-setup/</guid>
+      <guid>http://ccoenraets.github.io/es6-tutorial-data/project-setup/</guid>
       <description>
 
 &lt;p&gt;In this unit, you install and run the ECMAScript 5 version of the Employee Directory application that we use as a starting point for this tutorial:&lt;/p&gt;
